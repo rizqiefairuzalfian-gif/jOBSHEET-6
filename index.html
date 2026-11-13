@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART SHOP - Toko Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">SMART<span>SHOP</span></div>
+
+    <nav>
+        <a href="#home">Beranda</a>
+        <a href="#produk">Produk</a>
+        <a href="#promo">Promo</a>
+        <a href="#testimoni">Testimoni</a>
+        <a href="#tentang">Tentang</a>
+    </nav>
+
+    <button class="cart-button" onclick="toggleCart()">
+        🛒 Keranjang (<span id="cart-count">0</span>)
+    </button>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div>
+        <span class="promo-label">🔥 SELAMAT DATANG DI SMART SHOP</span>
+        <h1>Belanja Mudah,<br>
+            Harga Bersahabat!</h1>
+        <p>Temukan berbagai produk favoritmu dengan harga terbaik.</p>
+        <a href="#produk" class="hero-button">Belanja Sekarang 🛍️</a>
+    </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="advantages">
+    <div class="advantage-card">
+        <h2>🚚</h2>
+        <h3>Gratis Ongkir</h3>
+        <p>Belanja lebih hemat dengan promo pengiriman.</p>
+    </div>
+
+    <div class="advantage-card">
+        <h2>🔒</h2>
+        <h3>Pembayaran Aman</h3>
+        <p>Berbagai metode pembayaran tersedia.</p>
+    </div>
+
+    <div class="advantage-card">
+        <h2>⭐</h2>
+        <h3>Produk Berkualitas</h3>
+        <p>Produk pilihan dengan kualitas terbaik.</p>
+    </div>
+
+    <div class="advantage-card">
+        <h2>💬</h2>
+        <h3>Layanan Pelanggan</h3>
+        <p>Siap membantu kebutuhan belanjamu.</p>
+    </div>
+</section>
+
+<main>
+
+    <!-- PROMO -->
+    <section class="promo-section" id="promo">
+        <div class="promo-content">
+            <span>🎉 PROMO SPESIAL SMART SHOP</span>
+            <h2>FLASH SALE!</h2>
+            <h3>Diskon Hingga 50%</h3>
+            <p>Jangan lewatkan kesempatan mendapatkan produk favoritmu dengan harga spesial!</p>
+            <a href="#produk" class="hero-button">Lihat Promo Sekarang</a>
+        </div>
+        <div class="promo-image">🛍️ 🎁 🎉</div>
+    </section>
+
+    <!-- PRODUK -->
+    <section class="products-section" id="produk">
+        <h2>🛒 Produk Kami</h2>
+        <p class="subtitle">Pilih produk favoritmu dan nikmati pengalaman belanja terbaik!</p>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Cari nama produk..."
+            oninput="renderProducts()"
+        >
+
+        <div class="categories">
+            <button onclick="filterCategory('Semua')">Semua</button>
+            <button onclick="filterCategory('Elektronik')">📱 Elektronik</button>
+            <button onclick="filterCategory('Fashion')">👕 Fashion</button>
+            <button onclick="filterCategory('Aksesoris')">⌚ Aksesoris</button>
+        </div>
+
+        <div class="product-container" id="product-list"></div>
+    </section>
+
+    <!-- VOUCHER -->
+    <section class="voucher-section">
+        <h2>🎁 Voucher Belanja Spesial</h2>
+        <p>Gunakan kode voucher berikut untuk mendapatkan potongan harga!</p>
+
+        <div class="voucher-container">
+            <div class="voucher-card">
+                <h3>DISKON 10%</h3>
+                <p>Untuk pelanggan SMART SHOP</p>
+                <strong>SMART10</strong>
+            </div>
+
+            <div class="voucher-card">
+                <h3>DISKON 20%</h3>
+                <p>Promo belanja pilihan</p>
+                <strong>HEMAT20</strong>
+            </div>
+
+            <div class="voucher-card">
+                <h3>GRATIS ONGKIR</h3>
+                <p>Nikmati pengiriman hemat</p>
+                <strong>ONGKIR</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI -->
+    <section class="testimonials" id="testimoni">
+        <h2>⭐ Apa Kata Pelanggan?</h2>
+        <p class="subtitle">Pengalaman belanja pelanggan SMART SHOP</p>
+
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <h3>👤 Andi</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>"Produknya bagus, harganya terjangkau dan pengiriman cepat!"</p>
+            </div>
+
+            <div class="testimonial-card">
+                <h3>👩 Siti</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>"Website mudah digunakan. Banyak pilihan produk menarik."</p>
+            </div>
+
+            <div class="testimonial-card">
+                <h3>👨 Budi</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>"Belanja di SMART SHOP sangat menyenangkan. Recommended!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="about" id="tentang">
+        <h2>💙 Tentang SMART SHOP</h2>
+        <p>
+            SMART SHOP adalah website toko online sederhana
+            yang dibuat untuk memudahkan pelanggan dalam
+            mencari dan membeli berbagai produk.
+            Kami menyediakan berbagai kategori produk seperti
+            elektronik, fashion, dan aksesoris dengan harga
+            bersahabat. Website ini merupakan proyek pembelajaran
+            HTML, CSS, dan JavaScript.
+        </p>
+    </section>
+
+</main>
+
+<!-- FORM PEMBAYARAN -->
+<div class="payment-modal" id="payment-modal">
+    <div class="payment-box">
+        <button class="close-payment" onclick="closePayment()">✖</button>
+
+        <h2>💳 Checkout Pembayaran</h2>
+        <p>Lengkapi data pesanan kamu.</p>
+
+        <label>Nama Lengkap</label>
+        <input type="text" id="customer-name" placeholder="Masukkan nama">
+
+        <label>Nomor HP</label>
+        <input type="tel" id="customer-phone" placeholder="08xxxxxxxxxx">
+
+        <label>Alamat Pengiriman</label>
+        <textarea id="customer-address" placeholder="Masukkan alamat lengkap"></textarea>
+
+        <label>Metode Pembayaran</label>
+        <select id="payment-method" onchange="showPaymentInfo()">
+            <option value="">Pilih pembayaran</option>
+            <option value="Transfer BCA">Transfer Bank BCA</option>
+            <option value="Transfer BRI">Transfer Bank BRI</option>
+            <option value="Transfer BNI">Transfer Bank BNI</option>
+            <option value="Transfer Mandiri">Transfer Bank Mandiri</option>
+            <option value="DANA">DANA</option>
+            <option value="OVO">OVO</option>
+            <option value="GoPay">GoPay</option>
+            <option value="QRIS">QRIS</option>
+            <option value="COD">COD (Bayar di Tempat)</option>
+        </select>
+
+        <div id="payment-info"></div>
+
+        <h3>Total Pembayaran: <span id="payment-total">Rp0</span></h3>
+
+        <button class="checkout" onclick="processPayment()">
+            Konfirmasi Pesanan
+        </button>
+    </div>
+</div>
+
+<!-- KERANJANG -->
+<div class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+        <h2>🛒 Keranjang Belanja</h2>
+        <button onclick="toggleCart()">✖</button>
+    </div>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-footer">
+        <h3>Total: <span id="cart-total">Rp0</span></h3>
+        <button onclick="checkout()" class="checkout">
+            Checkout Sekarang
+        </button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div>
+            <h2>SMART<span>SHOP</span></h2>
+            <p>Belanja mudah, murah, dan menyenangkan!</p>
+        </div>
+
+        <div>
+            <h3>Menu</h3>
+            <p><a href="#home">Beranda</a></p>
+            <p><a href="#produk">Produk</a></p>
+            <p><a href="#promo">Promo</a></p>
+            <p><a href="#tentang">Tentang Kami</a></p>
+        </div>
+
+        <div>
+            <h3>Hubungi Kami</h3>
+            <p>📧 smartshop@email.com</p>
+            <p>📱 08xxxxxxxxxx</p>
+            <p>📍 Jakarta, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Ikuti Kami</h3>
+            <p>📷 Instagram</p>
+            <p>🎵 TikTok</p>
+            <p>📘 Facebook</p>
+        </div>
+    </div>
+
+    <hr>
+    <p>© 2026 SMART SHOP | Tugas Projek Sekolah</p>
+    <p>Dibuat dengan ❤️ HTML, CSS, dan JavaScript</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
